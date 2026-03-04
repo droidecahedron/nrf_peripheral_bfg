@@ -35,6 +35,9 @@
 
 Versions used: NCS `v3.1.2`
 
+This workshop assumes you've at least completed the first lesson of the nRF Connect SDK Fundamentals in the Nordic DevAcademy.
+If you haven't, here is a link, but expect to be left behind! [🔗LINK](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/)
+
 # Hands on
 ## High-level architecture
 At a high level, we will write an application for the nRF54L15 SoC leveraging I2C to interface with the PMIC and BLE to interface with the outside world via our mobile device.
@@ -43,8 +46,10 @@ We will be using the PMIC to determine the state of charge and voltage of the ba
 
 <img width="599" height="379" alt="image" src="https://github.com/user-attachments/assets/80171583-36d4-4175-ba53-dac30e092c50" />
 
-This workshop assumes you've at least completed the first lesson of the nRF Connect SDK Fundamentals in the Nordic DevAcademy.
-If you haven't, here is a link, but expect to be left behind! [🔗LINK](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/)
+## Block diagram of the seeed board
+
+<img width="856" height="502" alt="image" src="https://github.com/user-attachments/assets/179f860c-4f57-4e49-aee6-080ba7a56de0" />
+
 
 ## Goal and Progression Path
 There are a few branches in this repo, here is the intended progression path for you as you walk through this workshop.
@@ -74,12 +79,14 @@ graph LR;
 
 - run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="."`and let it build. You should be greeted with a completion and a final step of generating a merged.hex file.
 
-<img width="703" height="237" alt="image" src="https://github.com/user-attachments/assets/a45cc083-ad64-42c3-8a9d-fe0547a05eee" />
+  <img width="703" height="237" alt="image" src="https://github.com/user-attachments/assets/a45cc083-ad64-42c3-8a9d-fe0547a05eee" />
 
 ### Getting things ready to program.
 *These instructions assume you are using an nRF54L15-DK as your programmer.*
 - On the Seeed board, press and hold the SHPHLD button for about 1 second. The red LED should begin blinking, indicating it is out of ship mode.
-- Plug in the nRF54L15-DK, and turn the POWER switch to the ON position.
-- Connect your DBG-OUT header to the Seeed board's SWD port, matching the silk screens lines with the red line on the swd cable. (Images below for reference).
+- Plug in the nRF54L15-DK via USB cable, and turn the POWER switch to the ON position.
+- With your 2x5 SWD Ribbon cable, connect the DBG-OUT header of the nRF54L15-DK to the Seeed board's SWD port headers between the two push buttons, matching the silk screens lines with the red line on the swd cable. (Images below for reference).
+  
   <img width="462" height="494" alt="image" src="https://github.com/user-attachments/assets/86c697c0-d5e9-47ed-b847-0572cf200179" />
+
 - From here, you are ready to begin programming the board!
