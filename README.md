@@ -102,8 +102,6 @@ Then save the file.
 
 > [!NOTE]
 > Flip LOG=n and comment out all the remaining log based configs if you want to save power/processing in the future for a contemporary design.
->
-> For demonstrative / educational purposes we will use this throughout the workshop.
 
 ### Step 6
 Now let's start using the logging module in our main application. Within `main.c` again, let's include the logging module.
