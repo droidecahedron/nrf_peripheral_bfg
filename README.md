@@ -25,6 +25,7 @@ graph LR;
 > This is just a quirk to the flow of a fresh unbox of the board. If you've done this once, any time the device is out of ship mode it should program without needing this specific sequence.
 
 So first thing we will want to do is to have our userspace application blink the LED, similarly to the pre-shipped boards.
+
 This is primarily so we have proof of life after we start flashing throughout each step.
 
 #### Step 1
@@ -43,7 +44,9 @@ static const struct gpio_dt_spec bt_status_led = GPIO_DT_SPEC_GET(DT_NODELABEL(l
 
 #### Step 3
 Now let's add a blinking LED to the main function.
-Within `int main(void)`, append the following above `return 0;`:
+
+Within `int main(void)`, append the following above `return 0;`.
+
 ```c
 int err;
 err = gpio_pin_configure_dt(&bt_status_led, GPIO_OUTPUT_INACTIVE);
