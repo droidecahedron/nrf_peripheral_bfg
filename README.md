@@ -259,7 +259,7 @@ int pmic_reg_thread(void)
 }
 ```
 
-## Step 7
+### Step 7
 Now, let's build and program the board.
 
 Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash`.
