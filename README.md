@@ -9,7 +9,7 @@ graph LR;
 
 > _If you're really stuck, the `main.c` and `prj.conf` of each branch will be the solution for each step._
 
-### Getting things ready to program.
+### Getting things ready to program
 *These instructions assume you are using an nRF54L15-DK as your programmer.*
 - 1) Plug in the nRF54L15-DK via USB cable, and turn the POWER switch to the ON position.
 - 2) On the Seeed board, press and hold the SHPHLD button for about 1 second. The red LED should begin blinking, indicating it is out of ship mode.
@@ -27,13 +27,13 @@ graph LR;
 So first thing we will want to do is to have our userspace application blink the LED, similarly to the pre-shipped boards.
 This is primarily so we have proof of life after we start flashing throughout each step.
 
-#### Step 1)
+#### Step 1
 We first need to include the gpio driver from Zephyr, done by appending the following to the `main.c` file.
 ```c
 #include <zephyr/drivers/gpio.h>
 ```
 
-#### Step 2)
+#### Step 2
 From there, we can use the led0 nodelabel to reference LED0 and initialize and drive it.
 Add the following _outside_ the `main()` function in the `main.c` file.
 
@@ -41,7 +41,7 @@ Add the following _outside_ the `main()` function in the `main.c` file.
 static const struct gpio_dt_spec bt_status_led = GPIO_DT_SPEC_GET(DT_NODELABEL(led0), gpios);
 ```
 
-#### Step 3)
+#### Step 3
 Now let's add a blinking LED to the main function.
 Within `int main(void)`, append the following above `return 0;`:
 ```c
@@ -64,7 +64,7 @@ for (;;)
 
 This will initialize the LED, have it on for half a second, then off for 2.
 
-#### Step 4)
+#### Step 4
 Now let's flash this onto the board.
 Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash --recover` in the terminal in vsc. 
 
@@ -74,7 +74,7 @@ The tail end of the prompt should greet you with some success, and the LED shoul
 
 If this is _not_ the case, you may need to repeat steps 2-6 of the "**Getting things ready to program**" section.
 
-### Step 5)
+### Step 5
 Let's add some logging. 
 
 There isn't a convenient to access UART/serial output to use for logging on the Seeed board. 
@@ -105,7 +105,7 @@ Then save the file.
 >
 > For demonstrative / educational purposes we will use this throughout the workshop.
 
-### Step 6)
+### Step 6
 Now let's start using the logging module in our main application. Within `main.c` again, let's include the logging module.
 ```c
 #include <zephyr/logging/log.h>
