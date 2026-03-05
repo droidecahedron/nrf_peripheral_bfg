@@ -285,14 +285,10 @@ void ble_write_thread(void)
     int err;
     LOG_INF("ble write thread: entered");
 
-    k_sem_take(&sem_gpio_ready, K_FOREVER);
-    LOG_INF("ble write thread: woken by main");
-
     if (bt_init() != 0)
     {
         LOG_ERR("unable to initialize BLE!");
     }
-    k_sem_give(&sem_ble_ready);
 
     err = gpio_pin_configure_dt(&bt_status_led, GPIO_OUTPUT_INACTIVE);
     if (err)
