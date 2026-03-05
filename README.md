@@ -28,8 +28,6 @@ Your main function should now look as follows:
 ```c
 int main(void)
 {
-    int err;
-
     for (;;)
     {
         k_msleep(500);
