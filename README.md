@@ -373,7 +373,7 @@ Now, let's build and program the board.
 
 Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILpmic_msgqE="app.overlay"` followed by `west flash`.
 
-Now, if you use your nRF Connect for Mobile app on your android/iOS device, and filter for "ZXSeeed" (the prefix for our Bluetooth device name in `prj.conf`, you should see your device!
+Now, if you use your nRF Connect for Mobile app on your android/iOS device, and filter for "ZXSeeed" (the prefix for our Bluetooth device name in `prj.conf`, where ZX were your initials), you should see your device!
 
 <img width="13%" height="1334" alt="image" src="https://github.com/user-attachments/assets/351d0fce-6dff-44aa-ba6e-a2be12563e90" />
 
