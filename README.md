@@ -144,6 +144,7 @@ Now let's connect to the RTT terminal via the VSC extension. (If you're familiar
   <img width="902" height="490" alt="image" src="https://github.com/user-attachments/assets/aa945c01-ebd9-4d98-bd39-540e0be0c9eb" />
 
 - In the new pop-up, type `nrf54l15_m33` into the "Device" column to filter, and select the only option. (image below)
+  
   <img width="554" height="199" alt="image" src="https://github.com/user-attachments/assets/d40aee3e-67e4-4626-a4e2-4c606c2cb8de" />
 
 - You should now see your "I am alive" messages in a new terminal that gets spawned in the VSC terminal gui!
@@ -151,6 +152,7 @@ Now let's connect to the RTT terminal via the VSC extension. (If you're familiar
 
 
 - You can now kill this RTT instance by hovering over it on the right hand pane of the terminal viewer and clicking the trash can icon. You'll need to kill-restart it a few times depending on resets/power states/flashes throughout the workshop, so it's good to know where this button is.
+  
   <img width="196" height="159" alt="image" src="https://github.com/user-attachments/assets/5dfa5b8b-4f9c-4ab3-b6a6-c8a1844bae3c" />
   
 _If you're really stuck, the `prj.conf` and `main.c` of this branch have the solutions._
