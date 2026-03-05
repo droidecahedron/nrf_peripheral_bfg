@@ -18,7 +18,7 @@ graph LR;
   
   <img width="462" height="494" alt="image" src="https://github.com/user-attachments/assets/86c697c0-d5e9-47ed-b847-0572cf200179" />
 
-- 5) Press SHPHLD for about 1 second again as you did to exit ship mode when you first unboxed it.
+- 5) Press SHPHLD for about 1 second again as you did to exit ship mode when you first unboxed it. The LED may not flash this time, this is fine.
 - 6) From here, you are ready to begin programming the board! Let's get some code going so we can start iterating.
 
 > [!NOTE]
