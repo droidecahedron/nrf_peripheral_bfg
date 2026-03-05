@@ -69,7 +69,8 @@ K_MSGQ_DEFINE(ble_cfg_pmic_msgq, sizeof(int32_t), 8, 4);
 
 ### Step 4
 Let's add some global defines for Bluetooth attributes and the Bluetooth thread that will report our PMIC data to the phone.
-One characteristic will be for reading the battery voltage as plain text, the 
+One characteristic will be for reading the battery voltage as plain text, the other will be for putting the system into ship mode.
+For the battery state of charge, the standard battery level characteristic will be used so we don't need to create a custom characteristic.
 ```c
 #define BLE_NOTIFY_INTERVAL K_MSEC(1000)
 #define BLE_THREAD_STACK_SIZE 1024
