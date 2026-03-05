@@ -375,11 +375,11 @@ Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="."
 
 Now, if you use your nRF Connect for Mobile app on your android/iOS device, and filter for "ZXSeeed" (the prefix for our Bluetooth device name in `prj.conf`, you should see your device!
 
-<img width="750" height="1334" alt="image" src="https://github.com/user-attachments/assets/351d0fce-6dff-44aa-ba6e-a2be12563e90" />
+<img width="13%" height="1334" alt="image" src="https://github.com/user-attachments/assets/351d0fce-6dff-44aa-ba6e-a2be12563e90" />
 
 If you tap the device and choose connect, you'll be able to see the attributes. Battery Level holds the state of charge, and the unknown characteristic with the prefix `2100-2EAD` is the battery voltage as a UTF-8 string.
 
-<img width="750" height="1334" alt="image" src="https://github.com/user-attachments/assets/8637d031-caf7-4eef-aeb0-60a9dfb450d0" />
+<img width="13%" height="1334" alt="image" src="https://github.com/user-attachments/assets/8637d031-caf7-4eef-aeb0-60a9dfb450d0" />
 
 If you write to the `57EED111` characteristic, you can put the device into ship mode! It will terminate the connection and then go to sleep.
 
