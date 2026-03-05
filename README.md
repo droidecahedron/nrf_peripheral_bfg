@@ -28,13 +28,13 @@ So first thing we will want to do is to have our userspace application blink the
 
 This is primarily so we have proof of life after we start flashing throughout each step.
 
-#### Step 1
+### Step 1
 We first need to include the gpio driver from Zephyr, done by appending the following to the `main.c` file.
 ```c
 #include <zephyr/drivers/gpio.h>
 ```
 
-#### Step 2
+### Step 2
 From there, we can use the led0 nodelabel to reference LED0 and initialize and drive it.
 Add the following _outside_ the `main()` function in the `main.c` file.
 
@@ -42,7 +42,7 @@ Add the following _outside_ the `main()` function in the `main.c` file.
 static const struct gpio_dt_spec bt_status_led = GPIO_DT_SPEC_GET(DT_NODELABEL(led0), gpios);
 ```
 
-#### Step 3
+### Step 3
 Now let's add a blinking LED to the main function.
 
 Within `int main(void)`, append the following above `return 0;`.
@@ -67,7 +67,7 @@ for (;;)
 
 This will initialize the LED, have it on for half a second, then off for 2.
 
-#### Step 4
+### Step 4
 Now let's flash this onto the board.
 Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash --recover` in the terminal in vsc. 
 
@@ -137,7 +137,7 @@ for (;;)
 
 Save your changes, and run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash` in the terminal in vsc. 
 
-### Step 9
+### Step 8
 Now let's connect to the RTT terminal via the VSC extension. (If you're familiar with RTT viewer and j-link, you can also just open that .exe directly and use your own jlink if you desire).
 
 - Under the "connected devices" pane of the VSC extension, we should see our nRF54L15-DK. Expand the drop down and you should see RTT. Hover over that item to see a "plug" icon towards the right, and click it (labelled "1" in the image below). If you do _not_ see this icon, try power cycling the DK. If you never see it, you may be missing required software from the pre-requisites of the workshop.
