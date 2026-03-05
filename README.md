@@ -40,11 +40,13 @@ int main(void)
 
 ### Step 1
 Let's update our `prj.conf` to add Bluetooth features, below the fuel gauge configs.
+
+Make sure you replace ZX with your first and last initials to make scanning for _your_ device easier.
 ```
 # Bluetooth
 CONFIG_BT=y
 CONFIG_BT_PERIPHERAL=y
-CONFIG_BT_DEVICE_NAME="Seeed nPM2100+nRF54L15"
+CONFIG_BT_DEVICE_NAME="ZXSeeed nPM2100+nRF54L15"
 CONFIG_BT_NSMS=y
 CONFIG_BT_BAS=y
 ```
@@ -370,6 +372,23 @@ k_msgq_put(&pmic_msgq, &pmic_ble_report, K_FOREVER);
 Now, let's build and program the board.
 
 Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILpmic_msgqE="app.overlay"` followed by `west flash`.
+
+Now, if you use your nRF Connect for Mobile app on your android/iOS device, and filter for "ZXSeeed" (the prefix for our Bluetooth device name in `prj.conf`, you should see your device!
+
+<img width="750" height="1334" alt="image" src="https://github.com/user-attachments/assets/351d0fce-6dff-44aa-ba6e-a2be12563e90" />
+
+If you tap the device and choose connect, you'll be able to see the attributes. Battery Level holds the state of charge, and the unknown characteristic with the prefix `2100-2EAD` is the battery voltage as a UTF-8 string.
+
+<img width="750" height="1334" alt="image" src="https://github.com/user-attachments/assets/8637d031-caf7-4eef-aeb0-60a9dfb450d0" />
+
+If you write to the `57EED111` characteristic, you can put the device into ship mode! It will terminate the connection and then go to sleep.
+
+<img width="240" height="108" alt="image" src="https://github.com/user-attachments/assets/14602079-d95a-4688-908c-91226e7eaefe" />
+
+<img width="214" height="169" alt="image" src="https://github.com/user-attachments/assets/2abf9c22-4c56-4fd2-b7b7-81a0e87b19bc" />
+
+From there, you won't be able to see it advertising to reconnect.
+If you want to wake the device back up, hold the shipmode for about half a second like when you first got the device. You should now be able to see it blinking again, indicating it is advertising!
 
 _If you're really stuck, the `prj.conf` and `main.c` of this branch have the solutions._
 
