@@ -30,6 +30,7 @@ CONFIG_NRF_FUEL_GAUGE_VARIANT_PRIMARY_CELL=y
 ### Step 2
 Now add the following libraries to interact with the PMIC via `#include` at the top of `main.c`.
 ```c
+#include <stdint.h>
 #include <zephyr/drivers/i2c.h>
 #include <zephyr/drivers/mfd/npm2100.h>
 #include <zephyr/drivers/regulator.h>
@@ -56,6 +57,7 @@ static bool fuel_gauge_initialized;
 static const struct battery_model_primary battery_model = {
 #include <battery_models/primary_cell/LR44.inc>
 };
+#define AVERAGE_CURRENT (CONFIG_ACTIVE_CURRENT_UA * 1e-6f)
 
 static const struct i2c_dt_spec pmic_i2c = I2C_DT_SPEC_GET(DT_NODELABEL(npm2100_pmic));
 static const struct device *pmic_regulators = DEVICE_DT_GET(DT_NODELABEL(npm2100_regulators));
