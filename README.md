@@ -21,6 +21,7 @@ For the battery state of charge, there is already work done for us baked into th
 
 ### Step 0
 We initially control `bt_status_led` in the `for(;;)` block of the main thread. Now that we are adding BLE, let's use this LED for that instead.
+
 **Remove or comment the `gpio_pin_set_dt` function calls in the `main()` function.**
 
 ### Step 1
