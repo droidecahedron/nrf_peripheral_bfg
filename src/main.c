@@ -22,6 +22,7 @@ int main(void)
     if (err)
     {
         LOG_WRN("Configuring BT status LED failed (err %d)", err);
+        return -1;
     }
 
     for (;;)
