@@ -81,12 +81,4 @@ graph LR;
 
   <img width="703" height="237" alt="image" src="https://github.com/user-attachments/assets/a45cc083-ad64-42c3-8a9d-fe0547a05eee" />
 
-### Getting things ready to program.
-*These instructions assume you are using an nRF54L15-DK as your programmer.*
-- On the Seeed board, press and hold the SHPHLD button for about 1 second. The red LED should begin blinking, indicating it is out of ship mode.
-- Plug in the nRF54L15-DK via USB cable, and turn the POWER switch to the ON position.
-- With your 2x5 SWD Ribbon cable, connect the DBG-OUT header of the nRF54L15-DK to the Seeed board's SWD port headers between the two push buttons, matching the silk screens lines with the red line on the swd cable. (Images below for reference).
-  
-  <img width="462" height="494" alt="image" src="https://github.com/user-attachments/assets/86c697c0-d5e9-47ed-b847-0572cf200179" />
-
-- From here, you are ready to begin programming the board!
+## Move to the proof_of_life branch for the next set of instructions: [➡️LINK](https://github.com/droidecahedron/nrf_peripheral_bfg/tree/proof_of_life)
