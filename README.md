@@ -151,6 +151,7 @@ Now let's connect to the RTT terminal via the VSC extension. (If you're familiar
   <img width="554" height="199" alt="image" src="https://github.com/user-attachments/assets/d40aee3e-67e4-4626-a4e2-4c606c2cb8de" />
 
 - You should now see your "I am alive" messages in a new terminal that gets spawned in the VSC terminal gui!
+  
   <img width="294" height="130" alt="image" src="https://github.com/user-attachments/assets/8d5a4bfa-e870-4421-aac9-bb83b2a12093" />
 
 
