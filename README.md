@@ -31,6 +31,7 @@ CONFIG_NRF_FUEL_GAUGE_VARIANT_PRIMARY_CELL=y
 Now add the following libraries to interact with the PMIC via `#include` at the top of `main.c`.
 ```c
 #include <stdint.h>
+#include <math.h>
 #include <zephyr/drivers/i2c.h>
 #include <zephyr/drivers/mfd/npm2100.h>
 #include <zephyr/drivers/regulator.h>
