@@ -268,6 +268,7 @@ Now, if you connect via RTT, you should see some statistics such as battery volt
 
 <img width="445" height="96" alt="image" src="https://github.com/user-attachments/assets/16643a50-bd20-4c8e-8726-7935948c7754" />
 
+You can now kill the RTT terminal and move to the next step.
 
 _If you're really stuck, the `prj.conf` and `main.c` of this branch have the solutions._
 
