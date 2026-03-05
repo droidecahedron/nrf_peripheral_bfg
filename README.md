@@ -258,7 +258,17 @@ int pmic_reg_thread(void)
     }
 }
 ```
-  
+
+## Step 7
+Now, let's build and program the board.
+
+Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash`.
+
+Now, if you connect via RTT, you should see some statistics such as battery voltage, die temp, and battery state of charge along with your "i am alive" messages!
+
+<img width="445" height="96" alt="image" src="https://github.com/user-attachments/assets/16643a50-bd20-4c8e-8726-7935948c7754" />
+
+
 _If you're really stuck, the `prj.conf` and `main.c` of this branch have the solutions._
 
-## Move to the pmic branch for the next set of instructions: [➡️LINK](https://github.com/droidecahedron/nrf_peripheral_bfg/tree/pmic).
+## Move to the ble branch for the next set of instructions: [➡️LINK](https://github.com/droidecahedron/nrf_peripheral_bfg/tree/ble).
