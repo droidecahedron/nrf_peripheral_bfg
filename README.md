@@ -109,13 +109,12 @@ Now let's start using the logging module in our main application. Within `main.c
 #include <zephyr/logging/log.h>
 ```
 
-### Step 7
 Then let's register a logging module for this source file. Add the following outside of the main function (somewhere above/below the `bt_status_led` declaration works fine).
 ```c
 LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
 ```
 
-### Step 8
+### Step 7
 From here, we can add a warning log to the `if()` case of our gpio configuration:
 ```c
 LOG_WRN("Configuring BT status LED failed (err %d)", err);
