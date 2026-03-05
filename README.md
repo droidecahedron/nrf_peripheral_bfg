@@ -22,7 +22,23 @@ For the battery state of charge, there is already work done for us baked into th
 ### Step 0
 We initially control `bt_status_led` in the `for(;;)` block of the main thread. Now that we are adding BLE, let's use this LED for that instead.
 
-**Remove or comment the `gpio_pin_set_dt` function calls in the `main()` function.**
+**Remove or comment the `gpio_pin_set_dt` function calls in the `main()` function, as well as the configure_dt fn call and the error catch block around it.**
+
+Your main function should now look as follows:
+```c
+int main(void)
+{
+    int err;
+
+    for (;;)
+    {
+        k_msleep(500);
+        LOG_INF("I am alive");
+        k_msleep(2000);
+    }
+    return 0;
+}
+```
 
 ### Step 1
 Let's update our `prj.conf` to add Bluetooth features, below the fuel gauge configs.
