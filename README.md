@@ -33,7 +33,7 @@
  
 ### Installing and setting up nRF Connect SDK (NCS) 🔗[LINK](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/lessons/lesson-1-nrf-connect-sdk-introduction/topic/exercise-1-1/)
 
-Versions used: NCS `v3.1.2`
+Versions used: NCS `v3.2.1`
 
 This workshop assumes you've at least completed the first lesson of the nRF Connect SDK Fundamentals in the Nordic DevAcademy.
 If you haven't, here is a link, but expect to be left behind! [🔗LINK](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/)
