@@ -12,13 +12,13 @@ graph LR;
 ### Getting things ready to program
 *These instructions assume you are using an nRF54L15-DK as your programmer.*
 - 1) Plug in the nRF54L15-DK via USB cable, and turn the POWER switch to the ON position.
-- 2) On the Seeed board, press and hold the SHPHLD button for about 1 second. The red LED should begin blinking, indicating it is out of ship mode.
-- 3) Re-enter ship mode by pressing and holding SHPHLD down for about 2 seconds. The LED will stop blinking.
+- 2) On the Seeed board, press and hold the SHPHLD button for about 1-2 seconds. The red LED should begin blinking, indicating it is out of ship mode.
+- 3) Re-enter ship mode by pressing and holding SHPHLD down for about 1-2 seconds. The LED will stop blinking.
 - 4) With your 2x5 SWD Ribbon cable, connect the DBG-OUT header of the nRF54L15-DK to the Seeed board's SWD port headers between the two push buttons, matching the silk screens lines with the red line on the swd cable. (Images below for reference).
   
   <img width="462" height="494" alt="image" src="https://github.com/user-attachments/assets/86c697c0-d5e9-47ed-b847-0572cf200179" />
 
-- 5) Press SHPHLD for about 1 second again as you did to exit ship mode when you first unboxed it. The LED may not flash this time, this is fine.
+- 5) Press SHPHLD for about 1-2 seconds again as you did to exit ship mode when you first unboxed it. The LED may not flash this time, this is fine.
 - 6) From here, you are ready to begin programming the board! Let's get some code going so we can start iterating.
 
 > [!NOTE]
