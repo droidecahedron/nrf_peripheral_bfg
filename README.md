@@ -382,7 +382,7 @@ If you write to the `57EED111` characteristic, you can put the device into ship 
 <img width="214" height="169" alt="image" src="https://github.com/user-attachments/assets/2abf9c22-4c56-4fd2-b7b7-81a0e87b19bc" />
 
 From there, you won't be able to see it advertising to reconnect.
-If you want to wake the device back up, hold the shipmode for about half a second like when you first got the device. You should now be able to see it blinking again, indicating it is advertising!
+If you want to wake the device back up, hold the shipmode for about 1-2 seconds like when you first got the device. You should now be able to see it blinking again, indicating it is advertising!
 
 _If you're really stuck, the `prj.conf` and `main.c` of this branch have the solutions._
 
