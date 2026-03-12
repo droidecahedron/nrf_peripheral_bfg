@@ -292,43 +292,36 @@ int fuel_gauge_init(const struct device *vbat, char *bat_name, size_t n)
         return err;
     }
 
-    if (state)
+    struct nrf_fuel_gauge_init_parameters parameters = {
+        .model_primary = &battery_model,
+        .i0 = AVERAGE_CURRENT,
+        .opt_params = NULL,
+    };
+    struct nrf_fuel_gauge_runtime_parameters rt_params = {
+        .a = NAN,
+        .b = NAN,
+        .c = NAN,
+        .d = NAN,
+        .discard_positive_deltaz = true,
+    };
+    int ret;
+
+    ret = read_sensors(vbat, &parameters.v0, &parameters.t0);
+    if (ret < 0)
     {
-        struct nrf_fuel_gauge_init_parameters parameters = {
-            .model_primary = &battery_model,
-            .i0 = AVERAGE_CURRENT,
-            .opt_params = NULL,
-        };
-        struct nrf_fuel_gauge_runtime_parameters rt_params = {
-            .a = NAN,
-            .b = NAN,
-            .c = NAN,
-            .d = NAN,
-            .discard_positive_deltaz = true,
-        };
-        int ret;
-
-        ret = read_sensors(vbat, &parameters.v0, &parameters.t0);
-        if (ret < 0)
-        {
-            return ret;
-        }
-
-        ret = nrf_fuel_gauge_init(&parameters, NULL);
-        if (ret < 0)
-        {
-            return ret;
-        }
-
-        ref_time = k_uptime_get();
-        nrf_fuel_gauge_param_adjust(&rt_params);
-        strncpy(bat_name, battery_model.name, n);
-        err = 0;
+        return ret;
     }
-    else
+
+    ret = nrf_fuel_gauge_init(&parameters, NULL);
+    if (ret < 0)
     {
-        err = -1;
+        return ret;
     }
+
+    ref_time = k_uptime_get();
+    nrf_fuel_gauge_param_adjust(&rt_params);
+    strncpy(bat_name, battery_model.name, n);
+    err = 0;
 
     return err;
 }
