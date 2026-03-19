@@ -52,7 +52,6 @@ int err;
 err = gpio_pin_configure_dt(&bt_status_led, GPIO_OUTPUT_INACTIVE);
 if (err)
 {
-  LOG_WRN("Configuring BT status LED failed (err %d)", err);
   return -1;
 }
 
