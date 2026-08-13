@@ -1,0 +1,61 @@
+{
+  "name": "nRF Peripheral BFG (NCS v3.4.0)",
+
+  // Prebuilt image, version-pinned. Never use build.dockerfile here, or every
+  // attendee builds a multi-GB image inside their own codespace.
+  "image": "ghcr.io/droidecahedron/nrf_peripheral_bfg-devcontainer:ncs-v3.4.0",
+
+  // Keeps attendees off the 2-core machine.
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "16gb",
+    "storage": "32gb"
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "nordic-semiconductor.nrf-connect-pack",
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools",
+        "twxs.cmake",
+        "ms-vscode.hexeditor"
+      ],
+      // Container-only paths live here, NOT in a committed .vscode/settings.json,
+      // so they can't break local (host) builds of this same repo.
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "files.trimTrailingWhitespace": true,
+        "files.insertFinalNewline": true,
+        "files.associations": {
+          "*.dts": "dts",
+          "*.dtsi": "dts",
+          "*.overlay": "dts",
+          "Kconfig": "kconfig",
+          "Kconfig.*": "kconfig",
+          "*.conf": "properties"
+        },
+        "[c]": { "editor.defaultFormatter": "ms-vscode.cpptools" },
+        "[dts]": { "editor.tabSize": 2 },
+        "C_Cpp.default.compilerPath": "/root/ncs/toolchains/fbf7391cab/opt/zephyr-sdk/gnu/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc",
+        "C_Cpp.default.intelliSenseMode": "linux-gcc-arm",
+        "cmake.configureOnOpen": false,
+        "cmake.buildDirectory": "${workspaceFolder}/build",
+        "nrf-connect.topdir": "/root/ncs/v3.4.0",
+        "nrf-connect.toolchain.path": "/root/ncs/toolchains/fbf7391cab",
+        "nrf-connect.boardRoots": ["${workspaceFolder}"]
+      }
+    },
+    "codespaces": {
+      "openFiles": ["README.md"]
+    }
+  },
+
+  // safe.directory: root container + cloned repo otherwise trips git's
+  // "dubious ownership" check, which breaks west.
+  // build.board / build.cmake-args let a bare `west build` work; the explicit
+  // README command still works regardless.
+  "postCreateCommand": "git config --global --add safe.directory '*' && west config build.board seeed_nrf54l15_npm2100/nrf54l15/cpuapp && west config build.cmake-args -- \"-DBOARD_ROOT=${containerWorkspaceFolder}\""
+}
