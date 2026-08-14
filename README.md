@@ -25,18 +25,19 @@
   <img width="7%" height="339" alt="image" src="https://github.com/user-attachments/assets/aeae9099-7af0-4415-ae0b-cfa11111c362" />
 
 ## Software
-> [!IMPORTANT]  
-> You must complete the first lesson of the [Nordic DevAcademy](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/) for this workshop.
+> [!IMPORTANT]
+> There are two methods to build the application and participate in this workshop.
+>
+> One is local install, and one leverages a remote codespace.
 > 
-> You must be able to build and be able to flash a blank application. If you do not have a DK, at the very least a successful build system is required.
-> **These are large downloads and take a long time. Please complete before the workshop.**
- 
-### Installing and setting up nRF Connect SDK (NCS) 🔗[LINK](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/lessons/lesson-1-nrf-connect-sdk-introduction/topic/exercise-1-1/)
+> If you want to build locally, you must complete the first lesson of the [Nordic DevAcademy](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/) for this workshop: 🔗[LINK](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/lessons/lesson-1-nrf-connect-sdk-introduction/topic/exercise-1-1/).
+> 
+> You must be able to build and flash a blank application. If you do not have a DK, at the very least a successful build system is required.
+> **These are large downloads and take a long time. Please complete before the workshop if you intend on participating with this method.**
+> 
+> If you want to build remotely, there are instructions in the [Remote SDK](remote-sdk) section that will have smaller download links and instructions. **You must have a GitHub account to participate with the Remote SDK method.**
 
 Versions used: NCS `v3.4.0`
-
-This workshop assumes you've at least completed the first lesson of the nRF Connect SDK Fundamentals in the Nordic DevAcademy.
-If you haven't, here is a link, but expect to be left behind! [🔗LINK](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/)
 
 # Hands on
 ## High-level architecture
@@ -62,7 +63,10 @@ graph LR;
 > `*` == your current location
 
 ## Getting Started
-### Add the application to VSCode:
+### Local install: Add the application to VSCode:
+These are the instructions to follow if you have a local install of the SDK. 
+
+If you want to leverage a remote install, skip to the [Remote SDK](remote-sdk) section.
 > [!NOTE]
 > You can use strictly the extension graphic user interface (GUI) and avoid the command line interface (CLI).
 > For brevity and variety sake (since the [DK predecessor of this workshop](github.com/droidecahedron/nrf_peripheral_dmm) uses the GUI, we will be leveraging the CLI here instead.
@@ -80,5 +84,31 @@ graph LR;
 - run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="."`and let it build. You should be greeted with a completion and a final step of generating a merged.hex file.
 
   <img width="703" height="237" alt="image" src="https://github.com/user-attachments/assets/a45cc083-ad64-42c3-8a9d-fe0547a05eee" />
+
+### Remote SDK
+These are the instructions to follow if you intend to build remotely.
+
+1) you must download SEGGER J-link for your respective machine OS, described in section 1 here: 🔗[LINK](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/lessons/lesson-1-nrf-connect-sdk-introduction/topic/exercise-1-1/).
+
+2) download nrfutil: 🔗[LINK](https://www.nordicsemi.com/Products/Development-tools/nRF-Util). After downloading the nrfutil executable, it is recommended to move it to a folder that is in the system's `PATH`. On macOS and Linux, the downloaded file will also need to be given execute permission by typing `chmod +x nrfutil` or by doing this in a file browser (this is typically a checkbox found under file properties).
+
+3) While logged into your GitHub account, you can click the following link to spin up a codespace that will let you build with the SDK remotely: 🔗[LINK](https://codespaces.new/droidecahedron/nrf_peripheral_bfg?ref=main&quickstart=1)
+
+It will take some time to start up. 
+
+When it's ready, you should have a web view of a Visual Studio Code instance, and a terminal ready for your input.
+
+<img width="485" height="80" alt="image" src="https://github.com/user-attachments/assets/d3ec2868-f2bb-4fbb-84ae-840f97464bf7" />
+
+
+4) From here, run the following command to verify the build system in the remote image is working as intended:
+```
+west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="."
+```
+
+You should see it build and then return a successful message with no errors:
+
+<img width="693" height="286" alt="image" src="https://github.com/user-attachments/assets/5d8dcc1f-bc89-4bcc-a691-a0a6d2301b78" />
+
 
 ## Move to the proof_of_life branch for the next set of instructions: [➡️LINK](https://github.com/droidecahedron/nrf_peripheral_bfg/tree/proof_of_life)
