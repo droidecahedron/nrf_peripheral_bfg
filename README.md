@@ -92,7 +92,9 @@ These are the instructions to follow if you intend to build remotely.
 
 2) download nrfutil: 🔗[LINK](https://www.nordicsemi.com/Products/Development-tools/nRF-Util). After downloading the nrfutil executable, it is recommended to move it to a folder that is in the system's `PATH`. On macOS and Linux, the downloaded file will also need to be given execute permission by typing `chmod +x nrfutil` or by doing this in a file browser (this is typically a checkbox found under file properties).
 
-3) While logged into your GitHub account, you can click the following link to spin up a codespace that will let you build with the SDK remotely: 🔗[LINK](https://codespaces.new/droidecahedron/nrf_peripheral_bfg?ref=main&quickstart=1)
+3) Navigate a terminal instance to the `nrfutil` install location if you haven't done so already. Run `nrfutil install device`.
+
+4) While logged into your GitHub account, you can click the following link to spin up a codespace that will let you build with the SDK remotely: 🔗[LINK](https://codespaces.new/droidecahedron/nrf_peripheral_bfg?ref=main&quickstart=1)
 
 It will take some time to start up. 
 
