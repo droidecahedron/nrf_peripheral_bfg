@@ -67,14 +67,37 @@ for (;;)
 This will initialize the LED, have it on for half a second, then off for 2.
 
 ### Step 4
-Now let's flash this onto the board.
-Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash --recover` in the terminal in vsc. 
+Now let's flash this onto the board. This section is divided into [Local SDK install](flash-with-local-sdk-install) and [Remote SDK](flash-with-remote-sdk). Follow the section that matches the SDK environment you opted in for in the first section of the workshop.
+
+#### Flash with local SDK install
+Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"`, followed by `west flash --recover` after a successful build in the terminal in vsc.
 
 The tail end of the prompt should greet you with some success, and the LED should begin blinking.
 
 <img width="822" height="167" alt="image" src="https://github.com/user-attachments/assets/9826df9b-b1de-4142-9363-e67d3c9b8b0b" />
 
 If this is _not_ the case, you may need to repeat steps 2-6 of the "**Getting things ready to program**" section.
+
+#### Flash with remote SDK
+Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"`.
+
+After a successful build, you can download the generated .hex from the remote build environment by navigating to `build/nrf_peripheral_bfg/zephyr/zephyr.hex`.
+
+Right click zephyr.hex, and download it. 
+
+In a terminal instance that can execute `nrfutil` commands, run the following command replacing the path in the example with the path to the `zephyr.hex` you downloaded from the remote codespace.
+```nrfutil device program --firmware "C:\path\to\Downloads\zephyr.hex" --options chip_erase_mode=ERASE_ALL```
+
+Then run the following to give the board a reset.
+```nrfutil device reset --reset-kind=RESET_PIN```
+
+The terminal should greet you with success, and the LED should begin blinking.
+
+<img width="803" height="117" alt="image" src="https://github.com/user-attachments/assets/94cbd5f4-4b53-4ff7-b1be-0a6158d2ad00" />
+
+
+If this is _not_ the case, you may need to repeat steps 2-6 of the "**Getting things ready to program**" section.
+
 
 ### Step 5
 Let's add some logging. 
@@ -137,7 +160,12 @@ for (;;)
 Save your changes, and run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash` in the terminal in vsc. 
 
 ### Step 8
-Now let's connect to the RTT terminal via the VSC extension. (If you're familiar with RTT viewer and j-link, you can also just open that .exe directly and use your own jlink if you desire).
+Now let's connect to the RTT terminal.
+
+This section is divided into [Local SDK install](rtt-with-local-sdk-install) and [Remote SDK](rtt-with-remote-sdk). Follow the section that matches the SDK environment you opted in for in the first section of the workshop.
+
+#### RTT with local SDK install
+We will utilize RTT via the VSC extension. 
 
 - Under the "connected devices" pane of the VSC extension, we should see our nRF54L15-DK. Expand the drop down and you should see RTT. Hover over that item to see a "plug" icon towards the right, and click it (labelled "1" in the image below). If you do _not_ see this icon, try power cycling the DK. If you never see it, you may be missing required software from the pre-requisites of the workshop.
   
@@ -157,6 +185,20 @@ Now let's connect to the RTT terminal via the VSC extension. (If you're familiar
 - You can now kill this RTT instance by hovering over it on the right hand pane of the terminal viewer and clicking the trash can icon. You'll need to kill-restart it a few times depending on resets/power states/flashes throughout the workshop, so it's good to know where this button is.
   
   <img width="196" height="159" alt="image" src="https://github.com/user-attachments/assets/5dfa5b8b-4f9c-4ab3-b6a6-c8a1844bae3c" />
+
+#### RTT with remote SDK
+
+Run the RTT Viewer that was installed when you ran J-Link. Windows as a RTT Viewer executable that should be indexed into the start menu, you should be able to run `JLinkRTTViewerExe` on Linux systems to get the GUI up.
+
+You will be greeted with a screen that lets you pick a target device. Select the nrf54l15 M33 core as the target device.
+
+<img width="636" height="510" alt="image" src="https://github.com/user-attachments/assets/04406cb5-00d2-483f-b52a-edf9d40434fe" />
+
+You should now see your I am alive logs coming through the RTT viewer! 
+
+<img width="636" height="510" alt="image" src="https://github.com/user-attachments/assets/084007b4-bd48-44d8-a413-1ad04a9c8c2b" />
+
+
   
 _If you're really stuck, the `prj.conf` and `main.c` of this branch have the solutions._
 
