@@ -83,7 +83,10 @@ Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="."
 
 After a successful build, you can download the generated .hex from the remote build environment by navigating to `build/nrf_peripheral_bfg/zephyr/zephyr.hex`.
 
-Right click zephyr.hex, and download it. 
+Right click zephyr.hex, and download it.
+
+<img width="298" height="159" alt="image" src="https://github.com/user-attachments/assets/42961d25-7094-4909-959d-a66535d2cdc1" />
+
 
 In a terminal instance that can execute `nrfutil` commands, run the following command replacing the path in the example with the path to the `zephyr.hex` you downloaded from the remote codespace.
 ```nrfutil device program --firmware "C:\path\to\Downloads\zephyr.hex" --options chip_erase_mode=ERASE_ALL```
