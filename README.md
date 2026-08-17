@@ -69,6 +69,8 @@ This will initialize the LED, have it on for half a second, then off for 2.
 ### Step 4
 Now let's flash this onto the board. This section is divided into [Local SDK install](flash-with-local-sdk-install) and [Remote SDK](flash-with-remote-sdk). Follow the section that matches the SDK environment you opted in for in the first section of the workshop.
 
+The method described here is how you will flash the board for the remainder of the workshop, so you may want to copy the commands to a spare text editor somewhere.
+
 #### Flash with local SDK install
 Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"`, followed by `west flash --recover` after a successful build in the terminal in vsc.
 
