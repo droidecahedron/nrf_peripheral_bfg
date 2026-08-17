@@ -264,7 +264,9 @@ int pmic_reg_thread(void)
 ### Step 7
 Now, let's build and program the board.
 
-Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash`.
+Run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash` if the SDK is locally installed.
+
+If using the remote codespace, use `nrfutil device program --firmware "C:\path\to\Downloads\zephyr.hex" --options chip_erase_mode=ERASE_ALL` and `nrfutil device reset --reset-kind=RESET_PIN` again.
 
 Now, if you connect via RTT, you should see some statistics such as battery voltage, die temp, and battery state of charge along with your "i am alive" messages!
 
