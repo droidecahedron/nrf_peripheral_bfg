@@ -162,7 +162,7 @@ for (;;)
 }
 ```
 
-Save your changes, and run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` followed by `west flash` in the terminal in vsc. 
+Save your changes, and run `west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="." -DDTC_OVERLAY_FILE="app.overlay"` and flash the board.
 
 ### Step 8
 Now let's connect to the RTT terminal.
