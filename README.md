@@ -35,10 +35,7 @@ Now add the following libraries to interact with the PMIC via `#include` at the 
 #include <zephyr/drivers/i2c.h>
 #include <zephyr/drivers/mfd/npm2100.h>
 #include <zephyr/drivers/regulator.h>
-#include <zephyr/drivers/sensor.h>
-#include <zephyr/drivers/sensor/npm2100_vbat.h>
 #include <zephyr/dt-bindings/regulator/npm2100.h>
-#include <zephyr/sys/util.h>
 
 #include <string.h>
 #include <zephyr/device.h>
