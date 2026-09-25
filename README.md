@@ -103,7 +103,7 @@ When it's ready, you should have a web view of a Visual Studio Code instance, an
 <img width="485" height="80" alt="image" src="https://github.com/user-attachments/assets/d3ec2868-f2bb-4fbb-84ae-840f97464bf7" />
 
 
-4) From here, run the following command to verify the build system in the remote image is working as intended:
+5) From here, run the following command to verify the build system in the remote image is working as intended:
 ```
 west build -b seeed_nrf54l15_npm2100/nrf54l15/cpuapp -p -- -DBOARD_ROOT="."
 ```
