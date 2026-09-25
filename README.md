@@ -35,7 +35,7 @@
 > You must be able to build and flash a blank application. If you do not have a DK, at the very least a successful build system is required.
 > **These are large downloads and take a long time. Please complete before the workshop if you intend on participating with this method.**
 > 
-> If you want to build remotely, there are instructions in the [Remote SDK](remote-sdk) section that will have smaller download links and instructions. **You must have a GitHub account to participate with the Remote SDK method.**
+> If you want to build remotely, there are instructions in the [Remote SDK](#remote-sdk) section that will have smaller download links and instructions. **You must have a GitHub account to participate with the Remote SDK method.**
 
 Versions used: NCS `v3.4.0`
 
@@ -66,7 +66,7 @@ graph LR;
 ### Local install: Add the application to VSCode:
 These are the instructions to follow if you have a local install of the SDK. 
 
-If you want to leverage a remote install, skip to the [Remote SDK](remote-sdk) section.
+If you want to leverage a remote install, skip to the [Remote SDK](#remote-sdk) section.
 > [!NOTE]
 > You can use strictly the extension graphic user interface (GUI) and avoid the command line interface (CLI).
 > For brevity and variety sake (since the [DK predecessor of this workshop](github.com/droidecahedron/nrf_peripheral_dmm) uses the GUI, we will be leveraging the CLI here instead.
